@@ -1,5 +1,13 @@
 # Template App — Från commit till produktion
 
+## Milstolpe 1 — eget repo
+
+Repot är skapat från kursens template och den första projektändringen är
+committad i vårt eget GitHub repo.
+
+~Axel säg hej!
+  -
+
 Det här är startpunkten för ert projekt i DevOps-kursen. Appen är medvetet
 enkel — en liten "notes"-app i två delar — så att kursen kan handla om
 **processen** (version control, containers, testning, CI/CD, moln) snarare
