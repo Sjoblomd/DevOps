@@ -6,7 +6,7 @@ Repot är skapat från kursens template och den första projektändringen är
 committad i vårt eget GitHub repo.
 
 ~Axel säg hej!
-  -
+  - Tjena
 
 Det här är startpunkten för ert projekt i DevOps-kursen. Appen är medvetet
 enkel — en liten "notes"-app i två delar — så att kursen kan handla om
