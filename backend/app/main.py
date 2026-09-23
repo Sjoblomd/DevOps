@@ -26,6 +26,13 @@ class ItemCreate(BaseModel):
 _items: list[Item] = []
 _next_id = 1
 
+@app.get("/api/items/{item_id}")
+def get_item(item_id: int) -> Item:
+    for item in _items:
+        if item.id == item_id:
+            return item
+
+    raise HTTPException(status_code=404, detail="Item not found")
 
 @app.get("/api/health")
 def health() -> dict[str, str]:
