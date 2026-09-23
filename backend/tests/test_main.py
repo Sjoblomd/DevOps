@@ -4,6 +4,21 @@ from app.main import app
 
 client = TestClient(app)
 
+def test_get_existing_item():
+    response = client.post("/api/items", json={"text": "Test item"})
+    created = response.json()
+
+    response = client.get(f"/api/items/{created['id']}")
+
+    assert response.status_code == 200
+    assert response.json()["id"] == created["id"]
+    assert response.json()["text"] == created["text"]
+
+
+def test_get_missing_item_returns_404():
+    response = client.get("/api/items/999999")
+
+    assert response.status_code == 404
 
 def test_health() -> None:
     response = client.get("/api/health")
