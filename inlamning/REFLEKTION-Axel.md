@@ -1,16 +1,20 @@
 # Individuell reflektion – Axel Rosenlew
 
-När kursen började hade jag inte så bra koll på vad DevOps egentligen betyder. Jag hade använt Git, Docker och andra verktyg tidigare, men mest var för sig. Under kursen blev det mycket tydligare hur allt hör ihop från att man ändrar koden tills appen faktiskt körs i molnet.
+Under kursen har vår tjänst gått från en enkel första commit till att kunna köras i molnet genom en nästan helt automatiserad kedja. I början, i M1 och M2, handlade mycket om Git och hur man jobbar bättre med branches, commits, pull requests och reviews. Jag hade använt GitHub tidigare, men under kursen blev det tydligare varför man inte bara ska pusha allt direkt till main. Branch protection och reviews gjorde att ändringar behövde granskas innan de blev en del av projektet.
 
-Det jag lärde mig mest av var GitHub Actions, Docker, cPouta och Terraform. Jag tyckte speciellt att skillnaden mellan M7 och M8 var bra. I M7 gjorde vi allt manuellt i cPouta. Vi skapade VM, security groups, floating IP, SSH-access och installerade Docker själva. I M8 gjorde Terraform nästan samma sak automatiskt. Eftersom vi redan hade gjort allt för hand var det lättare att förstå vad Terraform faktiskt gjorde.
+Senare började vi lägga till mer automation. I M5 kom CI in i bilden. Där kördes tester och lint automatiskt när vi gjorde ändringar. Vi gjorde också medvetet ett fel och såg att pull requesten blockerades. Det var ett bra exempel på hur automation kan stoppa problem innan de kommer längre i kedjan.
 
-Git-delen blev också mycket tydligare för mig. Jag hade använt GitHub tidigare, men inte lika mycket med branch protection, pull requests och reviews. I M5 gjorde vi medvetet ett fel så att CI skulle faila. Då såg man tydligt hur GitHub kunde stoppa en dålig ändring innan den kom in på main.
+Efter det jobbade vi mer med Docker och GitHub Actions. Vi byggde images för backend och frontend och publicerade dem till GHCR. Det gjorde att samma version av appen kunde köras på olika ställen utan att vi behövde installera allt manuellt varje gång.
 
-Den svåraste delen var molnet. Det var ganska många saker att hålla koll på samtidigt, till exempel SSH-nycklar, IP-adresser, Docker, OpenStack och Terraform. När något inte fungerade var det inte alltid lätt att direkt se var felet var. Jag tycker ändå att det var nyttigt eftersom man lärde sig att felsöka steg för steg.
+M7 var den mest manuella delen av molnarbetet. Där skapade vi en VM i cPouta, security group, floating IP och SSH-access för hand. Vi installerade Docker själva och startade applikationen på servern. Det fungerade, men det var många steg där man kunde göra fel. I M8 blev skillnaden väldigt tydlig när vi gjorde samma typ av miljö med Terraform. Då kunde infrastrukturen byggas från kod istället för att vi behövde komma ihåg alla steg själva.
 
-Att jobba i par fungerade bra. Vi kunde dela upp arbetet mellan oss, men eftersom vi använde samma repo och granskade varandras pull requests behövde båda ändå förstå vad som hände. Det gjorde att man inte bara kunde göra sin egen del och strunta i resten.
+Till sist i M9 blev kedjan mer komplett genom automatiserad deployment. Då blev det tydligt hur hela kursen hänger ihop. En ändring i koden kan gå genom Git, testas automatiskt, byggas till Docker images och sedan användas i en miljö i molnet. I början gjorde vi mycket för hand, men mot slutet var mycket av processen automatiserad.
 
-Det viktigaste jag tar med mig från kursen är att jag nu förstår hela kedjan mycket bättre. Jag ser tydligare hur en kodändring kan gå genom Git, tester, CI, Docker images och sedan ut till en server.
+En konkret del som skulle bli mycket sämre utan automation är CI. I M5 såg vi att ett enkelt fel kunde blockeras automatiskt innan det mergades. Om vi istället skulle behöva komma ihåg att köra tester och lint själva varje gång, skulle det vara mycket lättare att glömma det. Då skulle fel kod kunna hamna på main.
+
+Terraform är ett annat bra exempel. I M7 gjorde vi infrastrukturen manuellt, och det var ganska många steg som behövde bli rätt. Om man skulle göra samma sak varje gång för hand finns det stor risk att man glömmer någon inställning eller skapar miljöerna lite olika. Med Terraform kan samma miljö byggas på samma sätt igen.
+
+Det viktigaste jag tar med mig från kursen är därför inte bara hur man använder verktygen, utan varför automation behövs. Den gör arbetet snabbare, men framför allt mer säkert och mer repeterbart. Jag förstår nu mycket bättre hur hela kedjan från commit till en fungerande tjänst i molnet hänger ihop.och sedan ut till en server.
 
 Om jag skulle göra kursen igen hade jag tagit screenshots och skrivit inlämningarna direkt efter varje milstolpe. Vi fick ofta tekniken att fungera först och tänkte på dokumentationen senare. Det gjorde vissa delar onödigt jobbiga i efterhand.
 
